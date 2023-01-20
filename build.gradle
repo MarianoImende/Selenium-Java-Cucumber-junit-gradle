@@ -1,0 +1,44 @@
+plugins {
+    id 'java' 
+}
+
+group 'CursoUdemy'
+version '1.O-snapshop'
+
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral() 
+}
+
+dependencies {
+// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.1'
+
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // https://mvnrepository.com/artifact/junit/junit
+   testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+   implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.6.0' //'4.8.1'//
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+   testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.6.0' //'4.8.1'//
+
+
+// https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter
+    implementation group: 'tech.grasshopper', name: 'extentreports-cucumber7-adapter', version: '1.9.2'
+
+}
+
+
+test { 
+    //systemProperty "cucumber.options", System.getProperty("cucumber.options") no anda se corre asi: gradle test -D cucumber.options="--tags @Grid"
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags") //se corre asi: gradle test -D cucumber.filter.tags="@Grid or @lista"
+}   
