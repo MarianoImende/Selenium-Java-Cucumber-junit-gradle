@@ -1,0 +1,11 @@
+test-output
+target
+.gradle
+relative-path
+.vscode
+bin
+build
+gradle
+lib
+gradlew
+gradlew.bat
